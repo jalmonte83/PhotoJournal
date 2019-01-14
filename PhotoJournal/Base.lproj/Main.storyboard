@@ -122,8 +122,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcO-Hs-vdt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="GLa-Ym-Q37">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gcS-rG-vgL"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0aL-TH-cp4"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hcO-Hs-vdt" firstAttribute="leading" secondItem="kh9-gE-4Vg" secondAttribute="leading" id="Uz3-4T-Odh"/>
+                            <constraint firstItem="hcO-Hs-vdt" firstAttribute="trailing" secondItem="kh9-gE-4Vg" secondAttribute="trailing" id="VBu-0S-NFk"/>
+                            <constraint firstItem="hcO-Hs-vdt" firstAttribute="top" secondItem="kh9-gE-4Vg" secondAttribute="top" id="ju4-kj-FDs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kh9-gE-4Vg"/>
                     </view>
                 </viewController>
