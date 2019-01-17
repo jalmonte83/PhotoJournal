@@ -14,7 +14,7 @@ final class PhotoJournalModel {
     private static var photoJournal = [PhotoJournal]()
     private init() {}
     
-    static func savePhotoJournal(photoJournal: PhotoJournal) {
+    static func savePhotoJournal() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
         do {
             let data = try PropertyListEncoder().encode(photoJournal)
@@ -24,7 +24,7 @@ final class PhotoJournalModel {
     }
     static func getPhotoJournal() -> [PhotoJournal] {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename).path
-        var photoJournal: PhotoJournal?
+       // var photoJournal: PhotoJournal?
         if FileManager.default.fileExists(atPath: path){
             if let data = FileManager.default.contents(atPath: path) {
                 do {
@@ -43,6 +43,13 @@ final class PhotoJournalModel {
         
         return photoJournal
         
+    }
+//    static func addPhotoJournal() {
+//        photoJournal.append(photo)
+//    }
+    static func editPhotoJournal(photoJournal: PhotoJournal, index: Int) {
+        self.photoJournal.remove(at: index)
+        self.savePhotoJournal()
     }
 }
 

@@ -7,31 +7,56 @@
 //
 
 import UIKit
-import AVFoundation
+
 
 class PhotoJournalViewController: UIViewController {
-
-    var photoJournal = PhotoJournalModel.getPhotoJournal()
+    
+    var photoJournal = PhotoJournalModel.getPhotoJournal(){
+        didSet {
+            photoJournalCollectioView.reloadData()
+        }
+        
+    }
+    
     @IBOutlet weak var photoJournalCollectioView: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        photoJournalCollectioView.delegate = self
+        photoJournalCollectioView.dataSource = self
+        print(DataPersistenceManager.documentsDirectory())
         
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        photoJournalCollectioView.reloadData()
+    }
 
 }
 
-//extension PhotoJournalViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 1
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
+extension PhotoJournalViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return PhotoJournalModel.getPhotoJournal().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoJournalCell", for: indexPath) as? PhotoJournalCollectionViewCell else { return UICollectionViewCell() }
+        let photoToSet = photoJournal[indexPath.row]
+        cell.PhotoJournalImage.image = UIImage(data: photoToSet.imageData)
+        cell.photoJournalDescription.text = photoToSet.description
+        cell.discriptionDate.text = photoToSet.dateFormattedString
+        cell.optionsButton.tag = indexPath.row
+        return cell
+    }
+    
+    
+}
+extension PhotoJournalViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+}

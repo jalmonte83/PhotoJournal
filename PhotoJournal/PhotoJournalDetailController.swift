@@ -9,11 +9,15 @@
 import UIKit
 
 class PhotoJournalDetailController: UIViewController {
-
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var photoJournalDetailImage: UIImageView!
+    private var photoLibraryViewController: UIImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func PhotoLibraryPressed(_ sender: UIBarButtonItem) {
     }
     
 

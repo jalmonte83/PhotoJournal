@@ -22,7 +22,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jVt-15-Uus"/>
-                                    <barButtonItem systemItem="add" id="eSm-iG-Uwj"/>
+                                    <barButtonItem systemItem="add" id="eSm-iG-Uwj">
+                                        <connections>
+                                            <segue destination="GwY-63-6UR" kind="presentation" id="rcl-hJ-fJ0"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uBC-lZ-RE9"/>
                                 </items>
                             </toolbar>
@@ -71,7 +75,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="editButtonPressed:" destination="uym-Qz-Sbm" eventType="touchUpInside" id="hQp-Kt-EIs"/>
+                                                        <action selector="optionsButtonPressed:" destination="uym-Qz-Sbm" eventType="touchUpInside" id="c20-vg-h5X"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -94,7 +98,7 @@
                                         <connections>
                                             <outlet property="PhotoJournalImage" destination="evr-iN-n8g" id="wZh-C3-ZNw"/>
                                             <outlet property="discriptionDate" destination="BBc-z6-kNm" id="H9e-Me-HYg"/>
-                                            <outlet property="editButton" destination="dnW-D0-LU5" id="nAu-z6-8Dj"/>
+                                            <outlet property="optionsButton" destination="dnW-D0-LU5" id="zkZ-wV-yEF"/>
                                             <outlet property="photoJournalDescription" destination="02J-tT-LB5" id="YMk-xd-xWk"/>
                                         </connections>
                                     </collectionViewCell>
@@ -132,7 +136,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZp-ou-Q4W">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Photo Library" id="U2P-Nw-1ID"/>
+                                    <barButtonItem title="Photo Library" id="U2P-Nw-1ID">
+                                        <connections>
+                                            <action selector="PhotoLibraryPressed:" destination="GwY-63-6UR" id="BH2-u5-jKO"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="REv-4Y-ueT"/>
                                     <barButtonItem systemItem="camera" id="y7E-PC-bNe"/>
                                 </items>
@@ -179,6 +187,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kh9-gE-4Vg"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="y7E-PC-bNe" id="M2Z-2H-Evv"/>
+                        <outlet property="photoJournalDetailImage" destination="aGk-nl-AUQ" id="Drh-J4-PNq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEi-pJ-sff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
