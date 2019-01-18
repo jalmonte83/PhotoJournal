@@ -17,7 +17,20 @@ class PhotoJournalDetailController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    private func showPhotoLibraryViewController() {
+        present(photoLibraryViewController
+            , animated:  true, completion: nil)
+    }
+    @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
+        photoLibraryViewController.sourceType = .camera
+        showPhotoLibraryViewController()
+    }
     @IBAction func PhotoLibraryPressed(_ sender: UIBarButtonItem) {
+        photoLibraryViewController.sourceType = .photoLibrary
+        showPhotoLibraryViewController()
+    }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {

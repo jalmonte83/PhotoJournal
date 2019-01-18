@@ -142,7 +142,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="REv-4Y-ueT"/>
-                                    <barButtonItem systemItem="camera" id="y7E-PC-bNe"/>
+                                    <barButtonItem systemItem="camera" id="y7E-PC-bNe">
+                                        <connections>
+                                            <action selector="cameraButtonPressed:" destination="GwY-63-6UR" id="1Mo-kq-r5g"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bhB-ci-FD3">
@@ -163,7 +167,11 @@
                                                 <action selector="cancelButtonPressed:" destination="GwY-63-6UR" id="ETk-Pt-vqy"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0aL-TH-cp4"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0aL-TH-cp4">
+                                            <connections>
+                                                <action selector="saveButtonPressed:" destination="GwY-63-6UR" id="Gsr-rm-eX4"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
