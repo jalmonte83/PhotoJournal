@@ -11,48 +11,48 @@ import UIKit
 
 class PhotoJournalViewController: UIViewController {
     
-//    var photoJournal = PhotoJournalModel.getPhotoJournal(){
-//        didSet {
-//            photoJournalCollectioView.reloadData()
-//        }
-//
-//    }
+    var photoJournal = PhotoJournalModel.getPhotoJournal(){
+        didSet {
+            photoJournalCollectioView.reloadData()
+        }
+
+    }
     
     @IBOutlet weak var photoJournalCollectioView: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //photoJournalCollectioView.delegate = self
-        //photoJournalCollectioView.dataSource = self
+        photoJournalCollectioView.delegate = self
+        photoJournalCollectioView.dataSource = self
         print(DataPersistenceManager.documentsDirectory())
         
     }
     override func viewWillAppear(_ animated: Bool) {
-       // photoJournalCollectioView.reloadData()
+        photoJournalCollectioView.reloadData()
     }
 
 }
 
-//extension PhotoJournalViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return PhotoJournalModel.getPhotoJournal().count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoJournalCell", for: indexPath) as? PhotoJournalCollectionViewCell else { return UICollectionViewCell() }
-//        let photoToSet = photoJournal[indexPath.row]
-//        cell.PhotoJournalImage.image = UIImage(data: photoToSet.imageData)
-//        cell.photoJournalDescription.text = photoToSet.description
-//        cell.descriptionDate.text = photoToSet.dateFormattedString
-//        cell.optionsButton.tag = indexPath.row
-//        return cell
-//    }
-//    
-//    
-//}
-//extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize.init(width: 400, height: 400)
-//    }
-//}
+extension PhotoJournalViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return PhotoJournalModel.getPhotoJournal().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoJournalCell", for: indexPath) as? PhotoJournalCollectionViewCell else { return UICollectionViewCell() }
+        let photoToSet = photoJournal[indexPath.row]
+        cell.PhotoJournalImage.image = UIImage(data: photoToSet.imageData)
+        cell.photoJournalDescription.text = photoToSet.description
+        cell.descriptionDate.text = photoToSet.dateFormattedString
+        cell.optionsButton.tag = indexPath.row
+        return cell
+    }
+    
+    
+}
+extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 200, height: 200)
+    }
+}
