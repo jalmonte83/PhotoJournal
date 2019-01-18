@@ -10,18 +10,10 @@ import Foundation
 
 final class PhotoJournalModel {
     static let filename = "PhotoJournalList.plist"
-    private static var photos = [PhotoJournal]()
+    //private static var photos = [PhotoJournal]()
     private static var photoJournal = [PhotoJournal]()
     private init() {}
     
-    static func savePhotoJournal() {
-        let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
-        do {
-            let data = try PropertyListEncoder().encode(photoJournal)
-        } catch {
-            print("property list encoding error: \(error)")
-        }
-    }
     static func getPhotoJournal() -> [PhotoJournal] {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename).path
        // var photoJournal: PhotoJournal?
@@ -53,4 +45,14 @@ final class PhotoJournalModel {
         self.photoJournal.remove(at: index)
         self.savePhotoJournal()
     }
+        static func savePhotoJournal(){
+            let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
+           // if FileManager.default.fileExists(atPath: path){
+            do {
+                let data = try PropertyListEncoder().encode(photoJournal)
+                try data.write(to: path, options: Data.WritingOptions.atomic)
+            } catch {
+                print("property list encoding error: \(error)")
+            }
+            }
 }
