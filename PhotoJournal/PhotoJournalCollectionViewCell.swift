@@ -11,7 +11,7 @@ import UIKit
 class PhotoJournalCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var PhotoJournalImage: UIImageView!
     @IBOutlet weak var photoJournalDescription: UILabel!
-    @IBOutlet weak var discriptionDate: UILabel!
+    @IBOutlet weak var descriptionDate: UILabel!
     @IBOutlet weak var optionsButton: UIButton!
     @IBAction func optionsButtonPressed(_ sender: UIButton) {
     }

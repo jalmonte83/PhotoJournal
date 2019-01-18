@@ -44,19 +44,15 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         let photoToSet = photoJournal[indexPath.row]
         cell.PhotoJournalImage.image = UIImage(data: photoToSet.imageData)
         cell.photoJournalDescription.text = photoToSet.description
-        cell.discriptionDate.text = photoToSet.dateFormattedString
+        cell.descriptionDate.text = photoToSet.dateFormattedString
         cell.optionsButton.tag = indexPath.row
         return cell
     }
     
     
 }
-extension PhotoJournalViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-    }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 400, height: 400)
     }
 }

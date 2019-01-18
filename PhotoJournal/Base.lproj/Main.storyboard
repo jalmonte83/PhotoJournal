@@ -97,7 +97,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="PhotoJournalImage" destination="evr-iN-n8g" id="wZh-C3-ZNw"/>
-                                            <outlet property="discriptionDate" destination="BBc-z6-kNm" id="H9e-Me-HYg"/>
+                                            <outlet property="descriptionDate" destination="BBc-z6-kNm" id="H9e-Me-HYg"/>
                                             <outlet property="optionsButton" destination="dnW-D0-LU5" id="zkZ-wV-yEF"/>
                                             <outlet property="photoJournalDescription" destination="02J-tT-LB5" id="YMk-xd-xWk"/>
                                         </connections>
@@ -158,7 +158,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="GLa-Ym-Q37">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gcS-rG-vgL"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gcS-rG-vgL">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="GwY-63-6UR" id="ETk-Pt-vqy"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="0aL-TH-cp4"/>
                                     </navigationItem>
                                 </items>
