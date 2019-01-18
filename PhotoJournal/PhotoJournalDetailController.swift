@@ -11,6 +11,8 @@ import UIKit
 class PhotoJournalDetailController: UIViewController {
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var photoJournalDetailImage: UIImageView!
+    @IBOutlet weak var photoJournalDetailDescription: UITextView!
+    
     private var photoLibraryViewController: UIImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,19 @@ class PhotoJournalDetailController: UIViewController {
         photoLibraryViewController.sourceType = .photoLibrary
         showPhotoLibraryViewController()
     }
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        let data = photoJournalDetailImage.image?.jpegData(compressionQuality: 50)
+        dismiss(animated: true, completion: nil)
+        let date = Date()
+        let isoDataFormatter = ISO8601DateFormatter()
+        isoDataFormatter.formatOptions = [.withFullDate,
+                                                   .withFullTime,
+                                                   .withTimeZone,
+                                                   .withDashSeparatorInDate]
+        let timeStamp = isoDataFormatter.string(from: date)
+        guard let photoJournalDetailDescription = photoJournalDetailDescription.text else { fatalError("Description nil")}
+        let stored = PhotoJournal.init(createdAt: timeStamp, imageData: data!, description: photoJournalDetailDescription)
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {

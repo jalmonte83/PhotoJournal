@@ -169,7 +169,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="0aL-TH-cp4">
                                             <connections>
-                                                <action selector="saveButtonPressed:" destination="GwY-63-6UR" id="Gsr-rm-eX4"/>
+                                                <action selector="saveButtonPressed:" destination="GwY-63-6UR" id="XxS-B6-45M"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -201,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="y7E-PC-bNe" id="M2Z-2H-Evv"/>
+                        <outlet property="photoJournalDetailDescription" destination="bhB-ci-FD3" id="8XJ-S4-lsy"/>
                         <outlet property="photoJournalDetailImage" destination="aGk-nl-AUQ" id="Drh-J4-PNq"/>
                     </connections>
                 </viewController>
