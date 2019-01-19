@@ -41,7 +41,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoJournalCell", for: indexPath) as? PhotoJournalCollectionViewCell else { return UICollectionViewCell() }
-        let photoToSet = photoJournal[indexPath.row]
+        let photoToSet = PhotoJournalModel.getPhotoJournal()[indexPath.row]
         cell.PhotoJournalImage.image = UIImage(data: photoToSet.imageData)
         cell.photoJournalDescription.text = photoToSet.description
         cell.descriptionDate.text = photoToSet.dateFormattedString
@@ -53,6 +53,6 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
 }
 extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 200, height: 200)
+        return CGSize.init(width: 400, height: 400)
     }
 }
